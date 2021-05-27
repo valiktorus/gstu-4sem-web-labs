@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<script>
+    let fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];
+    let citrus = ['orange', 'lemon', 'lime'];
+
+    printArray(fruits);
+    printArray(citrus);
+    printArray(simpleMergeArrays(fruits, citrus));
+    printArray(addFruitsAfterMango(fruits));
+    printArray(removeLastThreeElements(fruits));
+    printArray(sortArrayAlphabetically(fruits));
+    printArray(sortArrayAlphabeticallyReverse(fruits));
+    printArray(sortArrayByLength(fruits));
+
+
+    function printArray(array) {
+        array.forEach(element => document.write(element + ' '))
+        document.write("<br>");
+    }
+
+    function simpleMergeArrays(firstArray, secondArray) {
+        let mergedArray = [];
+        firstArray.forEach(element => mergedArray.push(element));
+        secondArray.forEach(element => mergedArray.push(element));
+        return mergedArray;
+    }
+
+    function addFruitsAfterMango(array) {
+        let result = array.slice();
+        let mangoIndex = result.indexOf('mango');
+        result.splice(mangoIndex + 1, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');
+        return result;
+    }
+
+    function removeLastThreeElements(array){
+        return array.slice(0, array.length - 3);
+    }
+
+    function sortArrayAlphabetically(array){
+        return array.slice().sort();
+    }
+
+    function sortArrayAlphabeticallyReverse(array){
+        return array.slice().sort().reverse();
+    }
+
+    function sortArrayByLength(array){
+        return array.slice().sort((a,b) => a.size - b.size)
+    }
+</script>
+</body>
+</html>

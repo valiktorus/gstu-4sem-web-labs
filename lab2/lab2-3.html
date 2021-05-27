@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<script>
+    let treug = [];
+    fillInTreug(treug);
+    printArrayRaw(treug);
+    let kvd = [];
+    fillInKvd(kvd);
+    printArrayColumn(kvd);
+    let rez = mergeArrays(treug, kvd);
+    printArrayRaw(rez);
+    printArrayRaw(rez.sort((a, b) => b - a));
+
+    function fillInTreug(array) {
+        for (let i = 1; i <= 10; i++) {
+            treug.push(i * (i + 1) / 2);
+        }
+    }
+
+    function fillInKvd(array) {
+        for (let i = 1; i <= 10; i++) {
+            array.push(i * i);
+        }
+    }
+
+    function printArrayColumn(array) {
+      array.forEach(element => document.write(`${element}<br>`))
+    }
+
+    function printArrayRaw(array, delimiter = "&nbsp;&nbsp;") {
+        array.forEach(element => document.write(element + delimiter))
+        document.write("<br>");
+    }
+
+    function mergeArrays(firstArray, secondArray){
+      let rez = [];
+      firstArray.forEach(element => rez.push(element));
+      secondArray.forEach(element => rez.push(element));
+      return rez;
+    }
+</script>
+</body>
+</html>

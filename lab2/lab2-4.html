@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<script>
+    let array = [];
+    fillInArray(array, 10);
+    printArray(array);
+    changeMinElementToFinal(array);
+    printArray(array);
+
+    function fillInArray(array, size) {
+        for (let i = 0; i < size; i++) {
+            array.push(Math.floor(Math.random() * 10));
+        }
+    }
+
+    function printArray(array){
+        array.forEach(element => document.write(element + ' '))
+        document.write("<br>");
+    }
+
+    function changeMinElementToFinal(array){
+        let minIndex = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] < array[minIndex]){
+              minIndex = i;
+            }
+        }
+        let tmp = array[minIndex];
+        array[minIndex] = array[array.length - 1]
+        array[array.length - 1] = tmp;
+    }
+</script>
+</body>
+</html>
