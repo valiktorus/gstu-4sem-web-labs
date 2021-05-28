@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<style>
+    div {
+        border: 1px solid black;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+    }
+    #red {
+        background-color: red;
+        z-index: 1;
+    }
+    #yellow{
+        background-color: yellow;
+        top: 30px;
+        left: 30px;
+        z-index: 2;
+    }
+    #green{
+        background-color: green;
+        top: 60px;
+        left: 60px;
+        z-index: 3;
+    }
+</style>
+<body>
+<div id="red" class="color-div" onclick="changeZIndex('red')"></div>
+<div id="green" class="color-div" onclick="changeZIndex('green')"></div>
+<div id="yellow" class="color-div"  onclick="changeZIndex('yellow')"></div>
+<script>
+
+    function changeZIndex(id){
+        let divToTop = document.getElementById(id);
+        let currentZIndex = +divToTop.style.zIndex;
+        if (currentZIndex !== 3){
+            let divs = document.getElementsByClassName("color-div");
+            Array.from(divs).forEach((el) => {
+                if (+el.style.zIndex === 3){
+                    el.style.zIndex = currentZIndex.toString();
+                }
+            });
+            divToTop.style.zIndex = "3";
+        }
+
+    }
+    function changeBgImage(path) {
+        document.body.style.backgroundImage = `url('${path}')`;
+    }
+</script>
+</body>
+</html>
