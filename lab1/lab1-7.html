@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<script>
+    let x = +prompt("Введите число x", '0.3')
+    let accuracy = +prompt("Введите точность в формате 0.001", '0.000000000001');
+    let sum = 1;
+    let n = 0
+    let teilorPart;
+    do {
+        teilorPart = (Math.pow(-1, n) * Math.pow(x, 2 * n)) / factorial(n);
+        sum += teilorPart
+        n++;
+    } while (Math.abs(teilorPart) > accuracy)
+    console.log(sum)
+
+    document.write(`<img src="images/lab1_7.jpg">`);
+    document.write(`<p>x: ${x}</p>`);
+    document.write(`<p>Точность: ${accuracy}</p>`);
+    document.write(`<p>Результат: ${sum}</p>`);
+    document.write("<p>Выполнил Пшеничник В.Н.</p>")
+
+
+    function factorial(number) {
+        return number ? number * factorial(number - 1) : 1;
+    }
+</script>
+</body>
+</html>
