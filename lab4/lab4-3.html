@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<form id="form">
+  <p><input id="input" type="text" size="40" value="abcd"></p>
+</form>
+<button onclick="thirdWordReplace()">Шифрование
+</button>
+<p>Зашифрованое:</p>
+<p id="encoded"></p>
+<script>
+    function thirdWordReplace() {
+        let inputValue = document.getElementById("input").value;
+        document.getElementById("encoded").innerText =
+            inputValue.replace(/./g, char => String.fromCharCode(char.charCodeAt(0) + 1));
+    }
+</script>
+</body>
+</html>

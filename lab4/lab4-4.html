@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<form id="form">
+  <p><input id="input" type="text" size="40" value="Привет Лабораторная работа 4.4"></p>
+</form>
+<button onclick="mixCharsInInput()">Перемешай буквы внутрислов кроме первой и последней
+</button>
+<p>Результат:</p>
+<p id="mixed"></p>
+<script>
+    function mixCharsInInput(){
+        let inputValue = document.getElementById("input").value;
+        document.getElementById("mixed").innerText = inputValue.replace(/\S+/g, str => mixCharsInWord(str))
+    }
+
+    function mixCharsInWord(str){
+        if (str.length < 3) {
+            return str;
+        }
+        let slice = str.slice(1, str.length - 1);
+        let mixedCenter = slice.split('')
+            .sort((a, b) => Math.random() < 0.5 ? -1 : 1)
+            .join('');
+        return str[0] + mixedCenter + str[str.length - 1];
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<h1>Выполнил Пшеничник В.Н ЗИС-20</h1>
+<h2>Зарплата:</h2>
+<form name="salaryForm">
+  <p><label>Январь: <input name="january" type="number" value="300"></label></p>
+  <p><label>Февраль: <input name="february" type="number" value="200"></label></p>
+  <p><label>Март: <input name="march" type="number" value="500"></label></p>
+  <p><label>Апрель: <input name="april" type="number" value="250"></label></p>
+  <p><label>Май: <input name="may" type="number" value="350"></label></p>
+  <p><label>Июнь: <input name="june" type="number" value="500"></label></p>
+</form>
+<button onclick="countAverageSalary()">Вычислить</button>
+<p>Результат:</p>
+<p><input name="result" id="result" type="number"></p>
+<script>
+    function countAverageSalary(){
+        let inputs = Array.from(document.forms["salaryForm"].getElementsByTagName("input"));
+        let sum = 0;
+        inputs.forEach(input => sum+= +input.value);
+        document.getElementById("result").value = (sum / inputs.length).toString();
+    }
+
+</script>
+</body>
+</html>

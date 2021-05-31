@@ -10,7 +10,6 @@
 </form>
 <button onclick="addInputToForm()">Добавить строку ввода в форму</button>
 <script>
-
     function addInputToForm(){
       let form = document.getElementById("form");
       let paragraph = document.createElement("p");
@@ -20,22 +19,6 @@
       paragraph.append(input);
       form.append(paragraph);
     }
-
-    // }
-    // let colors = ['black','maroon','purple','olive','yellow','navy', 'brown']
-    // for (let i = 0; i < 7; i++) {
-    //     document.body.appendChild(weekDay(7 - i, i + 1, colors[i]));
-    // }
-    //
-    // function weekDay(size, day, color){
-    //     let days = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье']
-    //     let sizes = ['xx-small','x-small','small','medium','large','x-large','xx-large']
-    //     let header = document.createElement(`h1`);
-    //     header.style.fontSize = sizes[size - 1];
-    //     header.innerText =days[day - 1];
-    //     header.style.color = color;
-    //     return header;
-    // }
 </script>
 </body>
 </html>

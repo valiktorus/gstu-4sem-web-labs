@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<form id="form">
+  <p><input id="input" type="text" size="40" value="Первое второе третье четвёртое"></p>
+</form>
+<button onclick="thirdWordReplace()">Поставить перед каждой буквой 3-го слова '-' ипосчитать количество слов с одним
+  пробелом после них
+</button>
+<p>После замены 3го слова:</p>
+<p id="thirdWord"></p>
+<p>Количество слов с пробелом в конце:</p>
+<p id="wordCount"></p>
+<script>
+    function thirdWordReplace() {
+        let thirdWordRegex = /^((\S+\s+){2})(\S+)/;
+        let inputValue = document.getElementById("input").value;
+        let thirdWord = inputValue.match(thirdWordRegex)[3];
+        document.getElementById("thirdWord").innerText =
+            inputValue.replace(thirdWordRegex, `$1${thirdWord.replace(/(\S)/g, "-$1")}`);
+
+        let wordWithWhitespaceRegex = /\S+ \S/
+        document.getElementById("wordCount").innerText =
+            (inputValue.split(wordWithWhitespaceRegex).length - 1).toString();
+    }
+</script>
+</body>
+</html>

@@ -18,6 +18,7 @@
     }
     document.write(`<h2>Стоимость продукта: ${price}</h2>`);
     document.write(`<h2>Скидка: ${discount}%</h2>`);
+    document.write(`<h2>Скидка в рублях: ${price * discount / 100}р</h2>`);
     document.write(`<h2>Стоимость со скидкой: ${(price - price * (discount / 100)).toFixed(2)}</h2>`);
 
     function getIntPromptValue(value){

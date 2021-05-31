@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<h1>Выполнил Пшеничник В.Н ЗИС-20</h1>
+
+<table>
+  <tr>
+    <td id="block" width="100px" height="100px" style="border: 1px solid black" align="left" valign="top">Text</td>
+  </tr>
+</table>
+<form name="horizontalForm">
+  <h2>Выберите горизонтальное расположение:</h2>
+  <p><label>Слева <input onchange="changeHorizontalAlign(this.value)" name="horizontal" type="radio" value="left" checked></label></p>
+  <p><label>По центру<input onchange="changeHorizontalAlign(this.value)" name="horizontal" type="radio" value="center"></label></p>
+  <p><label>Справа<input onchange="changeHorizontalAlign(this.value)" name="horizontal" type="radio" value="right"></label></p>
+</form>
+<form name="verticalForm">
+  <h2>Выберите вертикальное расположение:</h2>
+  <p><label>Сверху <input onchange="changeVerticalAlign(this.value)" name="vertical" type="checkbox" value="top"
+                          checked></label></p>
+  <p><label>По середине<input onchange="changeVerticalAlign(this.value)" name="vertical" type="checkbox" value="middle"></label>
+  </p>
+  <p><label>Внизу<input onchange="changeVerticalAlign(this.value)" name="vertical" type="checkbox"
+                        value="bottom"></label></p>
+</form>
+<script>
+    function changeHorizontalAlign(value) {
+        document.getElementById('block').setAttribute('align', value);
+    }
+
+    function changeVerticalAlign(value) {
+        let vertical = Array.from(document.forms["verticalForm"].getElementsByTagName("input"));
+        vertical.forEach(input => {
+            if (input.value !== value) {
+                input.checked = false;
+            } else {
+              document.getElementById('block').setAttribute('valign', value);
+            }
+        });
+    }
+</script>
+</body>
+</html>

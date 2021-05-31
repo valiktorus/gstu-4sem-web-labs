@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник Валентин ЗИС-20</title>
+</head>
+<body>
+<form id="form">
+  <p><input id="input" type="text" size="40" value="sdfs0dfA++afs+Bsd0fsdf"></p>
+</form>
+<button onclick="countPlusAndReplaceZero()">Подсчитай количество '+' между 'A' и 'В' и - заменить все '0' на 'OO'
+</button>
+<p>Количество '+' между 'A' и 'В':</p>
+<p id="plusCount"></p>
+<p>После замены всех 0 на OO:</p>
+<p id="replaceZero"></p>
+<script>
+    function countPlusAndReplaceZero() {
+        let inputValue = document.getElementById("input").value;
+        let aIndex = inputValue.indexOf('A');
+        let bIndex = inputValue.indexOf('B');
+        let arrayFromAtoB = inputValue.slice(aIndex + 1, bIndex);
+        document.getElementById("plusCount").innerText = (arrayFromAtoB.split('+').length - 1).toString()
+        document.getElementById("replaceZero").innerText = inputValue.replaceAll("0", "OO");
+    }
+</script>
+</body>
+</html>
