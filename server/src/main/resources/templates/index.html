@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пшеничник В.Н</title>
+</head>
+<body>
+
+<button onclick="printUsers()">Print user info</button>
+<table border>
+  <thead>
+  <tr>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Рост</th>
+    <th>Вес</th>
+  </tr>
+  </thead>
+  <tbody id="table-body">
+
+  </tbody>
+</table>
+<script>
+  function printUsers(){
+      fetch('http://localhost:8080/users')
+          .then((response) => {
+              return response.json();
+          })
+          .then((data) => {
+              console.log(data);
+              let tableBody = document.getElementById("table-body");
+              tableBody.innerHTML = '';
+              Array.from(data).forEach(user => {
+                  let nameData = document.createElement('td');
+                  nameData.innerText = user.name;
+                  let surnameData = document.createElement('td');
+                  surnameData.innerText = user.surname;
+                  let heightData = document.createElement('td');
+                  heightData.innerText = user.height;
+                  let weightData = document.createElement('td');
+                  weightData.innerText = user.weight;
+                  let row = document.createElement('tr');
+                  row.append(nameData);
+                  row.append(surnameData);
+                  row.append(heightData);
+                  row.append(weightData);
+                  tableBody.append(row);
+              });
+
+          });
+  }
+</script>
+</body>
+</html>
