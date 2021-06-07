@@ -5,12 +5,18 @@
   <title>Пшеничник Валентин ЗИС-20</title>
 </head>
 <body>
-<button onclick="changeBgImage(`images/lab3_2_1.jpg`)">Изменить на картинку 1</button>
-<button onclick="changeBgImage(`images/lab3_2_2.png`)">Изменить на картинку 2</button>
+<button onclick="moveDown()">Предыдущая</button>
+<button onclick="moveUp()">Следующая</button>
 <script>
-    function changeBgImage(path) {
-        document.body.style.backgroundImage = `url('${path}')`;
+    let paths = [`images/lab3_2_1.jpg`, `images/lab3_2_2.png`];
+    let currentImageIndex = 0;
+    function moveUp() {
+        document.body.style.backgroundImage = `url('${paths[++currentImageIndex % paths.length]}')`;
     }
+    function moveDown(){
+        document.body.style.backgroundImage = `url('${paths[--currentImageIndex % paths.length]}')`;
+    }
+
 </script>
 </body>
 </html>
